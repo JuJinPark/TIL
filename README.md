@@ -5,7 +5,7 @@
 
 
 ## JAVASCRIPT
-[polyfiils vs transpilation](http://www.example.com/)
+[polyfiils vs transpilation](https://github.com/JuJinPark/TIL/blob/master/JAVASCRIPT/polyfills%20vs%20transpilation.md)
 
 
 
