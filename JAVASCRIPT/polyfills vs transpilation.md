@@ -1,9 +1,9 @@
 # polyfiils 과 traspilation 차이점
 
-## polyfills
+* polyfills
 polyfils-없는 api를 해결해주고
----------------------
-## transpilation
+
+* transpilation
 traspilation은 문법을 그전 문법으로 변경해준다.
 
 
