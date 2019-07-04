@@ -38,3 +38,31 @@ DAO는 주로 테이블 단위이거나 데이터 블럭의 단위로 주로 형
 이걸 context.xml에서 해주면 저기에 dao 인터페이스만 만들고 maper에 id 랑 동일한 메서드 만 만들어주면
 서비스에서 dao.메서드로 불를수있다. 하지만 메퍼의 네임스페이스가 일단 dao 위치 + 이름으로 정의가 되어있어여한다.
 하지만 인터넷에서는 다른 방법이 많이 기재되어있다 무엇이 다른가? 가령 dao 인터페이스를 만들고 여기서 sql session을 주입받아서 메퍼를 부른다 무슨 차이일까???어떤게 더 나은 방식일까?
+
+## root-context vs servlet-context
+* servlet-context는 서블릿 설정에대한 파일
+  controller 매핑,view 처리 등
+
+* root context
+  비지니스 혹은 목적을 위한 service layer와 해당 서비스레이어에서 조회및 처리에 필요한 dataase와 연결된느 bean들에 대한 설정
+  다수의 sevelet context가 root context의 bean의 정보를 참조하는 구조
+  항상 단방향 severlet-context에서 root-context에 있는 빈 참조구조
+  공통빈 설정
+
+* 두 context에 중복되서 등록 되지않게 주의필요  에러는 발상하지 않으나 낭비
+
+## 스프링 classpath:경로
+
+* 결국엔 build후 WEB-INF/classes 가 그경로가 된다. 이건 properties>deployment assembly에서 확인이 가능하
+* 보통은 src/main 또는 src가 잡혀있다.
+
+## 톰캣 재시작후 세션이 살아있을떄
+세션은
+이 문제에 대한 해결책은 WAS 세팅을 통한 것이다.context.xml 의 <Manager> 설정을 해주면 된다.
+```
+<Manager pathname=""> <saveOnRestart>false</saveOnRestart> </Manager>
+```
+더간단한 방법
+```
+<Manager pathname=""/>
+```
