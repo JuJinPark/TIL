@@ -53,7 +53,7 @@ DAO는 주로 테이블 단위이거나 데이터 블럭의 단위로 주로 형
 
 ## 스프링 classpath:경로
 
-* 결국엔 build후 WEB-INF/classes 가 그경로가 된다. 이건 properties>deployment assembly에서 확인이 가능하
+* 결국엔 build후 target/classes 아래 또는 WEB-INF/classes  그경로가 된다. 이건 properties>deployment assembly에서 확인이 가능하다.
 * 보통은 src/main 또는 src가 잡혀있다.
 
 ## 톰캣 재시작후 세션이 살아있을떄
