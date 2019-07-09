@@ -1,8 +1,9 @@
-# json 파일을 읽어서 스트링으로 변환
+# org.json 파일 라이브러리 사용한 경험
 * 프로그램 작성내역
-그다음 json 배열이면 JSONArray 변환 JSONObject이면 JSONObject변한한다
-그다음 CDL.toString(JSONArray) csv 파일형식으로 스트링으로 변환해줌
-첫줄은 컬럼명만, 엮어져있고 데이터들은 컬럼이름 즉 key 값없이 value만 "," 뭍여져 있음
+  json 파일을 읽어서 스트링으로 변환
+  json 배열이면 JSONArray 변환 JSONObject이면 JSONObject변한한다
+  그다음 CDL.toString(JSONArray) csv 파일형식으로 스트링으로 변환해줌
+  첫줄은 컬럼명만, 엮어져있고 데이터들은 컬럼이름 즉 key 값없이 value만 "," 뭍여져 있음
 
 * 문제점 **JSONArray안에 JSONObject는 hashMap으로 구성되어있어 순서유지가 안됨**
 * 해결방안
