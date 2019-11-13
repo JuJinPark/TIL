@@ -31,7 +31,21 @@ host
 - apache 설정 파일 수정하기 
     - Document Root php 소스에 public 폴더로 매칭 시키기
     - ServerName 설정하기
-- local환경에 host 설정-아파치 설정 파일 서버네임과 일치 시키기
+- local환경에 host 설정(포트는 잡지 않는다)-아파치 설정 파일 서버네임과 일치 시키기
+    - 포트변경시
+        ```
+        In /etc/apache2/ports.conf, change the port as
+            Listen 8079
+        Then go to /etc/apache2/sites-enabled/000-default.conf
+
+        And change the first line of apache 설정 파일
+
+        <VirtualHost *: 8079>
+        Now restart
+
+        sudo service apache2 restart
+        Apache will now listen on port 8079 
+        ```
 - apache 및 rpm 재시작
 - 의존성 받아오기 composer install
 - 서버이름으로 요청 해보기
