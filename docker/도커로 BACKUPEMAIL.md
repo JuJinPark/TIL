@@ -38,7 +38,7 @@ host
             Listen 8079
         Then go to /etc/apache2/sites-enabled/000-default.conf
 
-        And change the first line of apache 설정 파일
+        And change the first line of apache 설정 파일(shared-api.conf)
 
         <VirtualHost *: 8079>
         Now restart
