@@ -83,10 +83,15 @@
 - tagging
     - 여러가지 바인딩된 객체를 테그를 통해 한이름으로 호출할 수있다.
         ```
-        $this->app->extend('validator', function ($validator, $app) {
-            $validator->setPresenceVerifier($app[RedisPresenceVerifier::class]);
-            return $validator;
+        $this->app->bind('SpeedReport', function () {
+        //
         });
+
+        $this->app->bind('MemoryReport', function () {
+        //
+        });
+
+        $this->app->tag(['SpeedReport', 'MemoryReport'], 'reports');
 
         $this->app->bind('ReportAggregator', function ($app) {
          return new ReportAggregator($app->tagged('reports'));
