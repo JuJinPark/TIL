@@ -30,14 +30,14 @@
             - 안정성을 체크 할 수 없음
             - 1개 고장시 데이터 유실
             - 데이터 보존용이 아닌 프로그램 설치/실행 및 캐시 용도로 사용 가능
-    ![ex_screenshot](./img_raid/raid0.png)
+    ![ex_screenshot](./img_raid/raid0.PNG)
 
     - raid 1
         - 특징
             - 미러링 방식
             - 디스크용량 절반만 사용가능
             - 다른 raid방식과 합쳐서 보통 구성
-    ![ex_screenshot](./img_raid/raid1.png)
+    ![ex_screenshot](./img_raid/raid1.PNG)
 
     - raid 2
         - 특징
@@ -46,7 +46,7 @@
             - error correction code를 별도에 드라이브에 저장
             - ecc위한 드라이브 손상시 문제 발생
             - raid 4가 나오면서 사용되지 않음
-    ![ex_screenshot](./img_raid/raid2.png)
+    ![ex_screenshot](./img_raid/raid2.PNG)
 
     - raid 3/4
         - 특징
@@ -56,14 +56,14 @@
             - raid 3는 드라이브 동기화가 필수적이라 raid 4를 더많이 사용함
             - raid 0+1과는 다르게 parity정보 기록 하드 1개를 제외하고는 모두 스트라이핑으로 사용
             - 패리티 정보를 이용해 하드 1개가 고장나도 복구 가능
-    ![ex_screenshot](./img_raid/raid3_4.png)
+    ![ex_screenshot](./img_raid/raid3_4.PNG)
 
     - raid5
         - 특징
             - 패러티 정보를 스트라이핑으로 구성된 디스크내에서 처리
             - 저장공간은 raid 3/4와 동일
             - 패러티 디스크 고장문제에서 자유롭다.    
-    ![ex_screenshot](./img_raid/raid5.png)
+    ![ex_screenshot](./img_raid/raid5.PNG)
 
     - raid6
         - 특징
