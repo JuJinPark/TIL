@@ -71,7 +71,7 @@
             - 저장공간은 절반으로 줄어든다
             - raid 0+1이나 raid 10 보다 성능 더 높고 신뢰성더 우수 (스트라이핑으로 엮어져있어서)
             - 읽기 성능은 raid5와 비슷하지만 쓰기 작업구현이 복잡해서 잘 쓰이지 않음
-    ![ex_screenshot](/raid6.png)
+    ![ex_screenshot](./img_raid/raid6.png)
 
     - raid 0+1
         - 특징
@@ -89,7 +89,7 @@
                 - 특정 한 디스크 고장시 0+1는 전체 복사를 진행해야 하고 10 미러링된 곳에서 만 복사
                 - 확률적으로 더 나은 안정성
                     
-    ![ex_screenshot](/raid0+1_raid10.png)
+    ![ex_screenshot](./img_raid/raid0+1_raid10.png)
 
   - raid 구성을 위해 필요한 것
    - raid 지원 장치
