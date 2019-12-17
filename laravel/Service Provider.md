@@ -197,4 +197,8 @@ class RiakServiceProvider extends ServiceProvider implements DeferrableProvider
 }
 ~~~
 
-* DeferrableProvider를 구현해도 정상적으로 지연 로딩이 발생하지 않는 현상?
+* Deferred 프로바이더와 아닌것으 차이는 register 실행시기 
+    - 테스트시 php artisan clear-compiled 으로 캐시를 비워줘야함
+* closer로 객체를 바인딩할시 실제 객체생성은 lazy-loading 임 객체개 필요시에 클로저를 수행해 생성한다.(프로바이더의 종류와 상관없이)
+* singleton 은 클로저로만 등록가능한듯.
+    

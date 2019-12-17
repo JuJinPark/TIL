@@ -57,3 +57,14 @@ host
  - test frame work 에서 interpreter 설정
     - php unit version 못잡을시 /opt/project/vendor/autoload.php 입력
  - debug는 크롬에서 세션 붙이기 첫번쨰라인에 break 옵셥 설정 후 테스하면 자동으로 서버를 잡는다. 이떄 혹시나 해서 전체 매핑도 같이 설정해주기   
+
+- 맥에서 설치시 유념사항
+ - localhost로 붙어야 한다(docker on window도 동일하수 있음)
+ - 디버깅 설정은
+'''
+Php.ini 
+xdebug.remote_enable=true
+xdebug.remote_connect_back=0
+xdebug.idekey=PHPSTORM
+xdebug.remote_host=host.docker.internal
+'''
