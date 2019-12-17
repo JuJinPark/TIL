@@ -201,4 +201,8 @@ class RiakServiceProvider extends ServiceProvider implements DeferrableProvider
     - 테스트시 php artisan clear-compiled 으로 캐시를 비워줘야함
 * closer로 객체를 바인딩할시 실제 객체생성은 lazy-loading 임 객체개 필요시에 클로저를 수행해 생성한다.(프로바이더의 종류와 상관없이)
 * singleton 은 클로저로만 등록가능한듯.
-    
+* reflection 으로 컨테이너에 등록 없이 의존성 주입이(auto-resolve) 가능하다. 하지만 다음과 같은 이유로 컨테이너를 사용하는게 더 나은 선택이다.
+    - reflection 보다 빠르다
+    - resolution시 로직을 포함시킬수 있다.
+    - string과 같은 값이 바인딩하는 객체에 필요로하고 의존하고 있을시 이부분은 auto-resolve로 해결할 수 없다.
+    - 인터페이스에 구현체를 바인딩 할 수 있다.
