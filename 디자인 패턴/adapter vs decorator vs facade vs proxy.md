@@ -1,0 +1,1 @@
+https://free-strings.blogspot.com/2016/04/adapter-decorator-facade-proxy.htmlß
