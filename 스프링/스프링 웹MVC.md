@@ -28,3 +28,9 @@ DAO는 주로 테이블 단위이거나 데이터 블럭의 단위로 주로 형
 처리하는게 맞을까? 똑같은 비지니스라면 당연히 중복성을 낮추기 위해서 Service를 호출하는게 좋을것 같은데..
 대규모 프로젝트라면 이런 중복되는 것이 얼마나 많을까..
 어짜피 많다면 다른 사람들의 코드까지 모두 검토하면서 고민하지 말고 그냥 DAO를 호출하는게 속편하지 않을까?
+
+
+## 스프링
+- Bindgresult로 바인딩시 에러 처리 가능 (MODEL attriubts) request body는 테스트 필요
+- session attributes 사용해서 model.addattribute를 에 넣어주면 자동으로 세션에 등록되고 다른받는 곳에서 @modelAttirbute 같은 이름으로 받으면 세션에 있는걸 받아온다. 같은 controller 에서만 사용가능 
+- @Validated 로 선택전 validation 가능 구룹을 지정해서 특정 그룹 validation만 특정상황에 적용(같은 dto 만들떄 업데이트할때 사용시)
