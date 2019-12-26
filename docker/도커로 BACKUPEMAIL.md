@@ -28,8 +28,45 @@ container
 host
 /c/Users/gm1702757/docker/dev/sites-enabled	
 
-
 ```
+- shared-api.conf 파일 예시
+  ```
+  <VirtualHost *:80>
+      DocumentRoot "/var/www/shared-mail-api.hiworks.com/public"
+      ServerName "pyj.shared-mail-api.hiworks.com"
+  
+      DirectoryIndex index.php
+  
+      <IfModule mod_rewrite.c>
+          <IfModule mod_negotiation.c>
+              Options -MultiViews -Indexes
+          </IfModule>
+  
+          RewriteEngine On
+  
+          # Handle Authorization Header
+          RewriteCond %{HTTP:Authorization} .
+          RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+  
+          # Redirect Trailing Slashes If Not A Folder...
+          RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
+          RewriteCond %{REQUEST_URI} (.+)/$
+          RewriteRule ^ %1 [L,R=301]
+  
+          # Handle Front Controller...
+          RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
+          RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f
+          RewriteRule ^ /index.php [L]
+      </IfModule>
+  
+      <FilesMatch \.php$>
+          SetHandler "proxy:unix:/var/run/php/php7.2-fpm.sock|fcgi://localhost"
+      </FilesMatch>
+  
+      ErrorLog "/var/log/apache2/sample.com.error_log"
+      CustomLog "/var/log/apache2/sample.com.access_log" common
+  </VirtualHost>
+  ```
 - apache 설정 파일 수정하기 
     - Document Root php 소스에 public 폴더로 매칭 시키기
     - ServerName 설정하기
@@ -59,12 +96,14 @@ host
  - debug는 크롬에서 세션 붙이기 첫번쨰라인에 break 옵셥 설정 후 테스하면 자동으로 서버를 잡는다. 이떄 혹시나 해서 전체 매핑도 같이 설정해주기   
 
 - 맥에서 설치시 유념사항
- - localhost로 붙어야 한다(docker on window도 동일하수 있음)
- - 디버깅 설정은
-'''
-Php.ini 
-xdebug.remote_enable=true
-xdebug.remote_connect_back=0
-xdebug.idekey=PHPSTORM
-xdebug.remote_host=host.docker.internal
-'''
+    - localhost로 붙어야 한다(docker on window도 동일하수 있음)
+    - 디버깅 설정은
+    ```
+    Php.ini 
+    xdebug.remote_enable=true
+    xdebug.remote_connect_back=0
+    xdebug.idekey=PHPSTORM
+    xdebug.remote_host=host.docker.internal
+    ```
+  
+    - php storm 에서 디버깅 서버 잘안잡일떄는 강제로 서버 네임 넣고 껏다켜보고 다시 지우고 해보
